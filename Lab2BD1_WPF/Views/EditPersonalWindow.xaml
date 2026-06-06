@@ -1,0 +1,59 @@
+<Window x:Class="Lab2BD1_WPF.Views.EditPersonalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Редактировать персональное занятие" Height="470" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="#F4F5F7">
+
+    <Grid Margin="16">
+        <materialDesign:Card Padding="20" materialDesign:ShadowAssist.ShadowDepth="Depth1" UniformCornerRadius="8" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Редактирование занятия" FontSize="18" FontWeight="Bold" Foreground="#27AE60" Margin="0,0,0,15"/>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                    <ComboBox x:Name="cbClient" 
+                              materialDesign:HintAssist.Hint="Клиент" 
+                              DisplayMemberPath="FullName" 
+                              SelectedValuePath="Id"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                              Margin="0,0,0,15"/>
+
+                    <ComboBox x:Name="cbInstructor" 
+                              materialDesign:HintAssist.Hint="Тренер" 
+                              DisplayMemberPath="Name" 
+                              SelectedValuePath="Id"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                              Margin="0,0,0,15"/>
+
+                    <DatePicker x:Name="dpDate" 
+                                materialDesign:HintAssist.Hint="Дата" 
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                                Margin="0,0,0,15"/>
+
+                    <TextBox x:Name="txtTime" 
+                             materialDesign:HintAssist.Hint="Время (ЧЧ:ММ)" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             materialDesign:TextFieldAssist.HasClearButton="True"
+                             Margin="0,0,0,15"/>
+
+                    <CheckBox x:Name="chkStatus" 
+                              Content="Активна" 
+                              Style="{StaticResource MaterialDesignCheckBox}"
+                              Margin="0,0,0,15"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Сохранить" Click="Save_Click" Style="{StaticResource MaterialDesignRaisedButton}" Background="#27AE60" BorderBrush="#27AE60" Width="110" Margin="0,0,10,0" Height="36"/>
+                    <Button Content="Отмена" IsCancel="True" Style="{StaticResource MaterialDesignFlatButton}" Foreground="#7F8C8D" Height="36"/>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>
